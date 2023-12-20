@@ -1,4 +1,4 @@
-# PMWEB - Guacamole Docker-Compose
+# Guacamole Docker-Compose
 Configurando o guacamole em uma Bastion Instance para acesso RDP
 
 ## Pré-Requisitos
