@@ -137,8 +137,8 @@ services:
    image: nginx
    volumes:
    - ./nginx/templates:/etc/nginx/templates:ro
-   - ./nginx/ssl/pmweb.cert:/etc/nginx/ssl/ssl.cert:ro
-   - ./nginx/ssl/pmweb.key:/etc/nginx/ssl/ssl.key:ro
+   - ./nginx/ssl/ssl.cert:/etc/nginx/ssl/ssl.cert:ro
+   - ./nginx/ssl/ssl.key:/etc/nginx/ssl/ssl.key:ro
    ports:
    - 443:443
    links:

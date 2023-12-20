@@ -103,7 +103,7 @@ A parte a seguir do docker-compose.yml criará uma instância do guacamole usand
 ~~~
 
 #### nginx
-A parte a seguir do docker-compose.yml criará uma instância do nginx que mapeia a porta pública 443 para a porta interna 443. A porta interna 443 é então mapeada para guacamole usando o arquivo `./nginx/templates/guacamole.conf.template `. O contêiner usará o certificado autoassinado gerado anteriormente (`prepare.sh`) em `./nginx/ssl/` com `./nginx/ssl/self-ssl.key` e `./nginx/ssl/self .cert`. Aqui iremos configurar o certificado da pmweb e editar o apontamento do mesmo no mapeamento dos volumes.
+A parte a seguir do docker-compose.yml criará uma instância do nginx que mapeia a porta pública 443 para a porta interna 443. A porta interna 443 é então mapeada para guacamole usando o arquivo `./nginx/templates/guacamole.conf.template `. O contêiner usará o certificado autoassinado gerado anteriormente (`prepare.sh`) em `./nginx/ssl/` com `./nginx/ssl/self-ssl.key` e `./nginx/ssl/self .cert`. Aqui iremos configurar o certificado necessário e editar o apontamento do mesmo no mapeamento dos volumes.
 
 ~~~python
 ...
@@ -114,8 +114,8 @@ A parte a seguir do docker-compose.yml criará uma instância do nginx que mapei
    image: nginx
    volumes:
    - ./nginx/templates:/etc/nginx/templates:ro
-   - ./nginx/ssl/pmweb.cert:/etc/nginx/ssl/pmweb.cert:ro
-   - ./nginx/ssl/pmweb.key:/etc/nginx/ssl/pmweb.key:ro
+   - ./nginx/ssl/ssl.cert:/etc/nginx/ssl/ssl.cert:ro
+   - ./nginx/ssl/ssl.key:/etc/nginx/ssl/ssl.key:ro
    ports:
    - 443:443
    links:
